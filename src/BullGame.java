@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,16 +30,27 @@ public class BullGame extends JPanel {
 		}, 0, 1000 / 60);
 	}
 
+	public final S_WIDTH = 800, S_HEIGHT = 600;
+	public InputHandler input;
+	
 	public BullGame() {
+		input = new InputHandler();
 
+		this.setFocusable(true);
+		this.requestFocus();
+		this.addKeyListener(input);
+		this.addMouseListener(input);
+		this.addMouseMotionListener(input);
+		
+		this.setPreferredSize(new Dimension(S_WIDTH, S_HEIGHT));
 	}
 
 	public void tick() {
-
+		//Game logic
 	}
 
 	public void paintComponent(Graphics g) {
-
+		//Render code
 	}
 
 }
